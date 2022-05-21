@@ -19,14 +19,17 @@ class TodoEditActivity : AppCompatActivity() {
         val iptalButton = findViewById<Button>(R.id.iptalEtDuzenle)
         val silButton = findViewById<Button>(R.id.silDuzenle)
         val editText = findViewById<EditText>(R.id.duzenlenecekTodoEditText)
+        val editTitle = findViewById<EditText>(R.id.duzenlenecekTodoEditTitle)
 
         val id = intent.getIntExtra("id", 0)
+        val title = intent.getStringExtra("title")
         val text = intent.getStringExtra("text")
-        editText.setText(text)
 
+        editText.setText(text)
+        editTitle.setText(title)
 
         kaydetButton.setOnClickListener() {
-            DataBase.editDataBase(id, editText.text.toString())
+            DataBase.editDataBase(id, editTitle.text.toString(),editText.text.toString())
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

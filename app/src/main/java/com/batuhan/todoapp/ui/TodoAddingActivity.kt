@@ -16,11 +16,12 @@ class TodoAddingActivity : AppCompatActivity() {
 
         val kaydetButton = findViewById<Button>(R.id.kaydetYeni)
         val iptalButton = findViewById<Button>(R.id.iptalEtYeni)
+        val editTitle = findViewById<EditText>(R.id.todoEkleEditTitle)
         val editText = findViewById<EditText>(R.id.todoEkleEditText)
 
         kaydetButton.setOnClickListener {
 
-            DataBase.addToDataBase(Todo(editText.text.toString()))
+            DataBase.addToDataBase(Todo(editTitle.text.toString(),editText.text.toString()))
 
             val myIntent = Intent(this, MainActivity::class.java)
             startActivity(myIntent)

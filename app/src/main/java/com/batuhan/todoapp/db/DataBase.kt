@@ -16,7 +16,7 @@ object DataBase {
             sqlDatabase = context.openOrCreateDatabase("todos", Context.MODE_PRIVATE, null)
             sqlDatabase.execSQL(
                 "CREATE TABLE IF NOT EXISTS todos " +
-                        "(uid INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, checked INTEGER)"
+                        "(uid INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, checked INTEGER, text TEXT)"
             )
             setup = true
         }
@@ -25,21 +25,34 @@ object DataBase {
     fun addToDataBase(todo: Todo) {
 
         val myString =
-            "INSERT INTO todos(title,checked) VALUES ('${todo.title.replace("'", "''")}', ${todo.isDone.convertToInt()})"
+            "INSERT INTO todos(title,text,checked) VALUES ('${
+                todo.title.replace(
+                    "'",
+                    "''"
+                )
+            }'," +
+                    " '${todo.text.replace("'", "''")}'," +
+                    "${todo.isDone.convertToInt()})"
         sqlDatabase.execSQL(myString)
 
     }
 
-    fun editDataBase(id: Int, text: String) {
-        val myString = "UPDATE todos SET title = '"+text.replace("'","''")+"' WHERE uid = " + id
+    fun editDataBase(id: Int, title: String, text: String) {
+        val myString =
+            "UPDATE todos SET title = '" + title.replace("'", "''") + "' WHERE uid = " + id
+        val myString2 =
+            "UPDATE todos SET text = '" + text.replace("'", "''") + "' WHERE uid = " + id
+
         sqlDatabase.execSQL(myString)
+        sqlDatabase.execSQL(myString2)
     }
 
     fun deleteFromDataBase(id: Int) {
         val myString = "DELETE FROM todos WHERE uid = ${id}"
         sqlDatabase.execSQL(myString)
     }
-    fun deleteCheckeds(){
+
+    fun deleteCheckeds() {
         val myString = "DELETE FROM todos WHERE checked = 1"
         sqlDatabase.execSQL(myString)
     }
@@ -51,7 +64,8 @@ object DataBase {
         val cursor = sqlDatabase.rawQuery(myString, null)
         while (cursor.moveToNext()) {
             val newTodo = Todo(
-                cursor.getString(cursor.getColumnIndex("title")).replace("''","'"),
+                cursor.getString(cursor.getColumnIndex("title")).replace("''", "'"),
+                cursor.getString(cursor.getColumnIndex("text")),
                 cursor.getInt(cursor.getColumnIndex("checked")).convertToBoolean(),
                 cursor.getInt(cursor.getColumnIndex("uid"))
             )

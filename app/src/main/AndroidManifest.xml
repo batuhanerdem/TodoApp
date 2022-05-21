@@ -14,6 +14,9 @@
         android:theme="@style/Theme.TodoApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.FullScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SettingsActivity"
             android:exported="false" />
         <activity

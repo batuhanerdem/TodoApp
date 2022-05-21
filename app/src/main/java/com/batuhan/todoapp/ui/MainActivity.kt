@@ -22,16 +22,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         DataBase.setupSQL(this)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.getIsLineOn(this)
         setRV()
 
 
         val ekleButton = findViewById<Button>(R.id.ekleButonu)
-
-
         ekleButton.setOnClickListener {
             val myIntent = Intent(this, TodoAddingActivity::class.java)
             startActivity(myIntent)
         }
+
+
 
     }
     private fun setRV(){
@@ -59,8 +60,6 @@ class MainActivity : AppCompatActivity() {
         else if (item.itemId == R.id.silme){
             DataBase.deleteCheckeds()
             viewModel.updateTodoList()
-            adapter.notifyDataSetChanged()
-
         }
         return super.onOptionsItemSelected(item)
     }
