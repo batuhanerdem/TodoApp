@@ -14,19 +14,31 @@
         android:theme="@style/Theme.TodoApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.FullScreenActivity"
+            android:name=".ui.todoAddToList.TodoAddToList"
             android:exported="false" />
         <activity
-            android:name=".ui.SettingsActivity"
+            android:name=".ui.listEdit.ListEditActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.TodoEditActivity"
+            android:name=".ui.listAdding.ListAddingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.TodoAddingActivity"
+            android:name=".ui.list.ListActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.fullscreen.FullScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.todoEdit.TodoEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.todoAdding.TodoAddingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.TodoAddingActivity">
+    android:background="#f9ffab"
+    tools:context=".ui.todoEdit.TodoEditActivity">
 
     <EditText
-        android:id="@+id/todoEkleEditTitle"
+        android:id="@+id/editTodoEditTextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="80dp"
         android:ems="10"
-        android:hint="Basligi yaziniz"
         android:inputType="textPersonName"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <EditText
-        android:id="@+id/todoEkleEditText"
+        android:id="@+id/editTodoEditTextText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="200dp"
-        android:ems="10"
-        android:hint="Yapilacaklarinizi yaziniz"
-        android:inputType="textPersonName"
-        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/todoEkleEditTitle"
-        app:layout_constraintStart_toStartOf="@+id/todoEkleEditTitle"
-        app:layout_constraintTop_toBottomOf="@+id/todoEkleEditTitle" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTodoEditTextTitle">
+
+    </EditText>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/kaydetYeni"
+        android:id="@+id/cancelEditTodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#9ED84315"
+        android:drawableStart="@drawable/ic_baseline_cancel_24"
+        android:drawablePadding="5dp"
+        android:text="Iptal et"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTodoEditTextText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveEditTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="60dp"
@@ -45,21 +55,19 @@
         android:drawableStart="@drawable/ic_baseline_save_24"
         android:drawablePadding="5dp"
         android:text="Kaydet"
-        app:layout_constraintEnd_toEndOf="@+id/todoEkleEditText"
-        app:layout_constraintTop_toTopOf="@+id/iptalEtYeni" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cancelEditTodo" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/iptalEtYeni"
+        android:id="@+id/deleteEditTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="80dp"
         android:backgroundTint="#9ED84315"
-        android:drawableStart="@drawable/ic_baseline_cancel_24"
+        android:drawableStart="@drawable/ic_baseline_delete_24"
         android:drawablePadding="5dp"
-        android:text="Iptal et"
-        app:layout_constraintStart_toStartOf="@+id/todoEkleEditText"
-        app:layout_constraintTop_toBottomOf="@+id/todoEkleEditText" />
-
-
+        android:text="Sil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cancelEditTodo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

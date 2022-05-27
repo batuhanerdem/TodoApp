@@ -4,48 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.TodoEditActivity">
+    android:background="#f9ffab"
+    tools:context=".ui.todoAdding.TodoAddingActivity">
 
     <EditText
-        android:id="@+id/duzenlenecekTodoEditTitle"
+        android:id="@+id/todoAddEditTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="80dp"
         android:ems="10"
+        android:hint="Basligi yaziniz"
         android:inputType="textPersonName"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
-        android:id="@+id/duzenlenecekTodoEditText"
+        android:id="@+id/todoAddEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="200dp"
+        android:ems="10"
+        android:hint="Yapilacaklarinizi yaziniz"
+        android:inputType="textPersonName"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/duzenlenecekTodoEditTitle">
-
-    </EditText>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/iptalEtDuzenle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="60dp"
-        android:backgroundTint="#9ED84315"
-        android:drawableStart="@drawable/ic_baseline_cancel_24"
-        android:drawablePadding="5dp"
-        android:text="Iptal et"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/duzenlenecekTodoEditText" />
+        app:layout_constraintEnd_toEndOf="@+id/todoAddEditTitle"
+        app:layout_constraintStart_toStartOf="@+id/todoAddEditTitle"
+        app:layout_constraintTop_toBottomOf="@+id/todoAddEditTitle" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/kaydetDuzenle"
+        android:id="@+id/saveTodoAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="60dp"
@@ -53,19 +46,21 @@
         android:drawableStart="@drawable/ic_baseline_save_24"
         android:drawablePadding="5dp"
         android:text="Kaydet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iptalEtDuzenle" />
+        app:layout_constraintEnd_toEndOf="@+id/todoAddEditText"
+        app:layout_constraintTop_toTopOf="@+id/cancelTodoAddButton" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/silDuzenle"
+        android:id="@+id/cancelTodoAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="80dp"
         android:backgroundTint="#9ED84315"
-        android:drawableStart="@drawable/ic_baseline_delete_24"
+        android:drawableStart="@drawable/ic_baseline_cancel_24"
         android:drawablePadding="5dp"
-        android:text="Sil"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iptalEtDuzenle" />
+        android:text="Iptal et"
+        app:layout_constraintStart_toStartOf="@+id/todoAddEditText"
+        app:layout_constraintTop_toBottomOf="@+id/todoAddEditText" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

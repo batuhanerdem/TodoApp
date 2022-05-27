@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9ffab"
+    tools:context=".ui.listAdding.ListAddingActivity">
+
+    <EditText
+        android:id="@+id/listAddingEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="250dp"
+        android:ems="10"
+        android:hint="Liste adini giriniz."
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancelListAdding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="90dp"
+        android:backgroundTint="#9ED84315"
+        android:drawableStart="@drawable/ic_baseline_cancel_24"
+        android:drawablePadding="5dp"
+        android:text="Iptal et"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listAddingEditText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveListAdding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="60dp"
+        android:backgroundTint="#9ED84315"
+        android:drawableStart="@drawable/ic_baseline_save_24"
+        android:drawablePadding="5dp"
+        android:text="Kaydet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cancelListAdding" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

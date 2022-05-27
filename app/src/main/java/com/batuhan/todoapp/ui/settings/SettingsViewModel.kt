@@ -1,4 +1,4 @@
-package com.batuhan.todoapp.ui
+package com.batuhan.todoapp.ui.settings
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

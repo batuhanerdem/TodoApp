@@ -1,10 +1,9 @@
-package com.batuhan.todoapp.ui
+package com.batuhan.todoapp.ui.main
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.batuhan.todoapp.db.DataBase
 import com.batuhan.todoapp.db.SharedDB
-import com.batuhan.todoapp.model.Todo
 
 class MainViewModel : ViewModel(){
 

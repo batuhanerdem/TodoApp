@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FullScreenActivity">
+    android:background="#f9ffab"
+    tools:context=".ui.fullscreen.FullScreenActivity">
 
     <TextView
         android:id="@+id/textViewTitle"

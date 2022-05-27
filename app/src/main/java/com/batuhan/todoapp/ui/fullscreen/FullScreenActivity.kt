@@ -1,4 +1,4 @@
-package com.batuhan.todoapp.ui
+package com.batuhan.todoapp.ui.fullscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,10 +12,10 @@ class FullScreenActivity : AppCompatActivity() {
 
         val textViewTitle = findViewById<TextView>(R.id.textViewTitle)
         val textViewText = findViewById<TextView>(R.id.textViewText)
-        var title = intent.getStringExtra("title")
-        var text = intent.getStringExtra("text")
+        val title = intent.getStringExtra("title")
+        val text = intent.getStringExtra("text")
 
-        textViewTitle.setText(title)
-        textViewText.setText(text)
+        textViewTitle.text = title
+        textViewText.text = text
     }
 }
