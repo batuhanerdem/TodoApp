@@ -9,5 +9,4 @@ class TodoAddingViewModel : ViewModel() {
         val newTodo = Todo(title, text)
         DataBase.addToDataBase(newTodo)
     }
-
 }

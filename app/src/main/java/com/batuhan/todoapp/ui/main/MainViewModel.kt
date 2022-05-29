@@ -15,9 +15,7 @@ class MainViewModel : ViewModel(){
     }
 
     fun getIsLineOn(context: Context){
-
         SharedDB.getLineOn(context)
-
     }
 
 }

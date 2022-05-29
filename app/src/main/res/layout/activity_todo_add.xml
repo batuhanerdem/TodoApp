@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f9ffab"
+    android:background="#709DB8"
     tools:context=".ui.todoAdding.TodoAddingActivity">
 
     <EditText
@@ -17,6 +17,7 @@
         android:hint="Basligi yaziniz"
         android:inputType="textPersonName"
         android:text=""
+        android:textColorHint="#434045"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,6 +33,7 @@
         android:hint="Yapilacaklarinizi yaziniz"
         android:inputType="textPersonName"
         android:text=""
+        android:textColorHint="#434045"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/todoAddEditTitle"
         app:layout_constraintStart_toStartOf="@+id/todoAddEditTitle"
@@ -42,10 +44,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="60dp"
-        android:backgroundTint="#9ED84315"
+        android:backgroundTint="#65A1E6"
         android:drawableStart="@drawable/ic_baseline_save_24"
         android:drawablePadding="5dp"
         android:text="Kaydet"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/todoAddEditText"
         app:layout_constraintTop_toTopOf="@+id/cancelTodoAddButton" />
 
@@ -55,10 +58,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="80dp"
-        android:backgroundTint="#9ED84315"
+        android:backgroundTint="#3845A5"
         android:drawableStart="@drawable/ic_baseline_cancel_24"
         android:drawablePadding="5dp"
         android:text="Iptal et"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/todoAddEditText"
         app:layout_constraintTop_toBottomOf="@+id/todoAddEditText" />
 

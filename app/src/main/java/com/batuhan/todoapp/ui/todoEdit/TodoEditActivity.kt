@@ -9,14 +9,19 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import com.batuhan.todoapp.R
+import com.batuhan.todoapp.model.Todo
 import com.batuhan.todoapp.ui.main.MainActivity
+import com.batuhan.todoapp.utils.safeLet
 
 class TodoEditActivity : AppCompatActivity() {
     private lateinit var viewModel: TodoEditViewModel
+    private lateinit var currentTodo: Todo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo_edit)
         viewModel = ViewModelProvider(this).get(TodoEditViewModel::class.java)
+        getCurrentTodo()
 
         val saveButton = findViewById<Button>(R.id.saveEditTodo)
         val cancelButton = findViewById<Button>(R.id.cancelEditTodo)
@@ -24,22 +29,18 @@ class TodoEditActivity : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.editTodoEditTextText)
         val editTitle = findViewById<EditText>(R.id.editTodoEditTextTitle)
 
-        val id = intent.getIntExtra("id", -1)
-        val title = intent.getStringExtra("title")
-        val text = intent.getStringExtra("text")
-
-        editText.setText(text)
-        editTitle.setText(title)
+        editText.setText(currentTodo.text)
+        editTitle.setText(currentTodo.title)
 
         saveButton.setOnClickListener() {
-            viewModel.editDB(id, editTitle.text.toString(), editText.text.toString())
+            viewModel.editDB(currentTodo.uid, editTitle.text.toString(), editText.text.toString())
             goToMainActivity()
         }
         cancelButton.setOnClickListener() {
             goToMainActivity()
         }
         silButton.setOnClickListener() {
-            viewModel.deleteFromDB(id)
+            viewModel.deleteFromDB(currentTodo.uid)
             goToMainActivity()
         }
     }
@@ -60,5 +61,14 @@ class TodoEditActivity : AppCompatActivity() {
     private fun goToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun getCurrentTodo() {
+        val id = intent.getIntExtra("id",-1)
+        val title = intent.getStringExtra("title")
+        val text = intent.getStringExtra("text")
+        safeLet(title, text,id) {
+            currentTodo = Todo(title!!, text!!, uid = id)
+        }
     }
 }

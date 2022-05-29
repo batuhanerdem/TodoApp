@@ -6,5 +6,4 @@ import com.batuhan.todoapp.db.DataBase
 
 class TodoAddToListViewModel : ViewModel() {
     var listList = DataBase.getFromListDB()
-
 }

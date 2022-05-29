@@ -10,7 +10,7 @@ import com.batuhan.todoapp.R
 import com.batuhan.todoapp.ui.list.ListActivity
 
 class ListAddingActivity : AppCompatActivity() {
-    private lateinit var viewModel:ListAddingViewModel
+    private lateinit var viewModel: ListAddingViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,20 +21,19 @@ class ListAddingActivity : AppCompatActivity() {
         val cancelButton = findViewById<Button>(R.id.cancelListAdding)
         val editText = findViewById<EditText>(R.id.listAddingEditText)
 
-        saveButton.setOnClickListener(){
+        saveButton.setOnClickListener() {
             viewModel.addToListDB(editText.text.toString())
             goToListActivity()
-            finish()
         }
 
-        cancelButton.setOnClickListener(){
-           goToListActivity()
-            finish()
+        cancelButton.setOnClickListener() {
+            goToListActivity()
         }
     }
 
-    private fun goToListActivity(){
+    private fun goToListActivity() {
         val intent = Intent(this, ListActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }

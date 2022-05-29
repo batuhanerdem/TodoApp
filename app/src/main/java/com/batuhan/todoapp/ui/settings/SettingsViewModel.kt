@@ -9,7 +9,6 @@ class SettingsViewModel : ViewModel() {
     fun changeIsLineOn(boolean: Boolean, context: Context) {
         SharedDB.isLineOn = boolean
         SharedDB.setLineOn(context)
-
     }
 }
 

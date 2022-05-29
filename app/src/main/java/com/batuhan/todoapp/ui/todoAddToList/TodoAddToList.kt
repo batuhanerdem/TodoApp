@@ -15,6 +15,7 @@ class TodoAddToList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo_add_to_list)
+
         viewModel = ViewModelProvider(this).get(TodoAddToListViewModel::class.java)
         val getTodoId = intent.getIntExtra("todoIdsi",-1)
         setRV(getTodoId)

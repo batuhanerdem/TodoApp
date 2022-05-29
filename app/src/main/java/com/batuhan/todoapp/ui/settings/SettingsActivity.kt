@@ -15,14 +15,13 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
         viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
-
+        // 23-26
         val switchLine = findViewById<Switch>(R.id.switchLine)
 
         switchLine.isChecked = SharedDB.isLineOn
 
         switchLine.setOnClickListener() {
             viewModel.changeIsLineOn(switchLine.isChecked,this)
-
         }
     }
 }

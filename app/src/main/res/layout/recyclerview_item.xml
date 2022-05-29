@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    android:background="#f9ffab">
-
+    android:background="#709DB8"
+>
     <TextView
         android:id="@+id/txtTitleList"
         android:layout_width="0dp"

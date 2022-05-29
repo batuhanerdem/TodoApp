@@ -111,7 +111,6 @@ object DataBase {
 
     @SuppressLint("Range")
     fun addToShowingList(listNumber: Int) {
-
         SharedDB.showingList.clear()
         val myString = "SELECT * FROM todos WHERE listNumber = $listNumber"
         val cursor = sqlDatabase.rawQuery(myString, null)
@@ -143,5 +142,9 @@ object DataBase {
     fun checkedChange(id: Int, value: Boolean) {
         val myString = "UPDATE todos SET checked = ${value.convertToInt()} WHERE uid = $id"
         sqlDatabase.execSQL(myString)
+    }
+    fun updateList(list: ArrayList<List>){
+        list.clear()
+        list.addAll(getFromListDB())
     }
 }

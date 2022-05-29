@@ -38,40 +38,42 @@ class MainAdapter(
     }
 
     override fun onBindViewHolder(holder: VHMainlist, position: Int) {
-            val id = todoList[position].uid
-            val title = todoList[position].title
-            val text = todoList[position].text
+        val currentTodo = todoList[position]
+        val id = currentTodo.uid
+        val title = currentTodo.title
+        val text = currentTodo.text
 
-            holder.itemView.txtTitleList.setOnClickListener {
+        holder.itemView.apply {
+            txtTitleList.setOnClickListener {
                 goToFullScreen(context, title, text)
             }
-            holder.itemView.txtTextList.setOnClickListener {
+            txtTextList.setOnClickListener {
                 goToFullScreen(context, title, text)
             }
-            holder.itemView.editButton.setOnClickListener {
-                val myIntent = Intent(context, TodoEditActivity::class.java)
-
-                myIntent.putExtra("id", id)
-                myIntent.putExtra("title", title)
-                myIntent.putExtra("text", text)
-                context.startActivity(myIntent)
+            editButton.setOnClickListener {
+                Intent(context, TodoEditActivity::class.java).apply {
+                    putExtra("id", id)
+                    putExtra("title", title)
+                    putExtra("text", text)
+                    context.startActivity(this)
+                }
             }
 
-            holder.itemView.cbDoneList.setOnCheckedChangeListener { _, b ->
-                holder.itemView.txtTitleList.doLineOn(b)
-                DataBase.checkedChange(todoList[position].uid, b)
+            cbDoneList.setOnCheckedChangeListener { _, b ->
+                txtTitleList.doLineOn(b)
+                DataBase.checkedChange(currentTodo.uid, b)
             }
 
-            holder.itemView.txtTextList.maxLines = 2
-            holder.itemView.txtTitleList.text = todoList[position].title
-            holder.itemView.txtTitleList.doLineOn(todoList[position].isDone)
-            holder.itemView.cbDoneList.isChecked = todoList[position].isDone
-            holder.itemView.txtTextList.text = todoList[position].text
-
+            txtTextList.maxLines = 2
+            txtTitleList.text = currentTodo.title
+            txtTitleList.doLineOn(currentTodo.isDone)
+            cbDoneList.isChecked = currentTodo.isDone
+            txtTextList.text = currentTodo.text
+        }
     }
 
     override fun getItemCount(): Int {
-            return todoList.size
+        return todoList.size
     }
 
     private fun TextView.doLineOn(boolean: Boolean) {
@@ -83,9 +85,10 @@ class MainAdapter(
     }
 
     private fun goToFullScreen(context: Context, title: String, text: String) {
-        val myIntent = Intent(context, FullScreenActivity::class.java)
-        myIntent.putExtra("title", title)
-        myIntent.putExtra("text", text)
-        context.startActivity(myIntent)
+        Intent(context, FullScreenActivity::class.java).apply {
+            putExtra("title", title)
+            putExtra("text", text)
+            context.startActivity(this)
+        }
     }
 }

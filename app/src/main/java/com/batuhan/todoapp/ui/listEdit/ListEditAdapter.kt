@@ -24,15 +24,16 @@ class ListEditAdapter(
         )
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: VHMainlist, position: Int) {
-        holder.itemView.txtTitleList.text = SharedDB.showingList[position].title
-        holder.itemView.txtTextList.text = SharedDB.showingList[position].text
-
-        holder.itemView.deleteButtonListEditItem.setOnClickListener {
-            DataBase.deleteTodoFromList(SharedDB.showingList[position].uid)
-            SharedDB.showingList.removeAt(position)
-            notifyDataSetChanged()
+        var currentTodo = SharedDB.showingList[position]
+        holder.itemView.apply {
+            txtTitleList.text = currentTodo.title
+            txtTextList.text = currentTodo.text
+            deleteButtonListEditItem.setOnClickListener() {
+                DataBase.deleteTodoFromList(currentTodo.uid)
+                SharedDB.showingList.removeAt(position)
+                notifyItemRemoved(position)
+            }
         }
     }
 

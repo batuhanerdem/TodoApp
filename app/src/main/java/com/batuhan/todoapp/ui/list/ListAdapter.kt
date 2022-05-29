@@ -1,6 +1,5 @@
 package com.batuhan.todoapp.ui.list
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -16,7 +15,7 @@ import com.batuhan.todoapp.ui.main.MainActivity
 import kotlinx.android.synthetic.main.recyclerlist_item.view.*
 
 class ListAdapter(
-    private val listList: ArrayList<List>,
+    private var listList: ArrayList<List>,
     val context: Context,
     private val adding: Boolean = false,
     private val todoId: Int = 0
@@ -34,29 +33,33 @@ class ListAdapter(
         )
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: VHMainlist, position: Int) {
+        val currentList = listList[position]
+        holder.itemView.apply {
+            if (adding) {//this is for the recyclerlist_item
+                editListButton.visibility = INVISIBLE
+                listTextView.setOnClickListener {
+                    DataBase.setId(todoId, currentList.id)
+                    val intent = Intent(context, MainActivity::class.java)
+                    context.startActivity(intent)
+                }
+            }
 
-        if (adding) {//this is for the recyclerlist_item
-            holder.itemView.editListButton.visibility = INVISIBLE
-            holder.itemView.listTextView.setOnClickListener {
-                DataBase.setId(todoId, listList[position].id)
-                val intent = Intent(context,MainActivity::class.java)
+            listTextView.text = currentList.name
+            editListButton.setOnClickListener {
+                val intent = Intent(context, ListEditActivity::class.java)
+                intent.putExtra("listId", currentList.id)
                 context.startActivity(intent)
+            }
+            deleteButtonListItem.setOnClickListener() {
+                DataBase.apply {
+                    deleteFromListDatabase(currentList.id)
+                    updateList(listList)
+                }
+                notifyItemRemoved(position)
             }
         }
 
-        holder.itemView.listTextView.text = listList[position].name
-        holder.itemView.editListButton.setOnClickListener {
-            val intent = Intent(context, ListEditActivity::class.java)
-            intent.putExtra("listId", listList[position].id)
-            context.startActivity(intent)
-        }
-        holder.itemView.deleteButtonListItem.setOnClickListener {
-            DataBase.deleteFromListDatabase(listList[position].id)
-            notifyDataSetChanged()
-        }
-        
     }
 
     override fun getItemCount(): Int {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f9ffab"
+    android:background="#709DB8"
     tools:context=".ui.todoAddToList.TodoAddToList">
 
     <androidx.recyclerview.widget.RecyclerView

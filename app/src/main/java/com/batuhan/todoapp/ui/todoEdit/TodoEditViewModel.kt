@@ -10,13 +10,15 @@ class TodoEditViewModel : ViewModel() {
     fun editDB(id: Int, title: String, text: String) {
         DataBase.editDataBase(id, title, text)
     }
-    fun deleteFromDB(id:Int){
+
+    fun deleteFromDB(id: Int) {
         DataBase.deleteFromDataBase(id)
     }
-    fun throwIdToTodoAddToList(id:Int,context:Context){
-        val intent = Intent(context, TodoAddToList::class.java)
-        intent.putExtra("todoIdsi", id)
-        context.startActivity(intent)
-    }
 
+    fun throwIdToTodoAddToList(id: Int, context: Context) {
+        Intent(context, TodoAddToList::class.java).apply {
+            putExtra("todoIdsi", id)
+            context.startActivity(this)
+        }
+    }
 }

@@ -13,6 +13,7 @@ import com.batuhan.todoapp.ui.listAdding.ListAddingActivity
 class ListActivity : AppCompatActivity() {
     private lateinit var adapter: ListAdapter
     private lateinit var viewModel: ListViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
@@ -31,7 +32,7 @@ class ListActivity : AppCompatActivity() {
     private fun setRV() {
         val recycler = findViewById<RecyclerView>(R.id.recyclerList)
 
-        adapter = ListAdapter(viewModel.listList, this,false)
+        adapter = ListAdapter(viewModel.listList, this, false)
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
     }

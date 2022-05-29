@@ -23,19 +23,24 @@ class TodoAddingActivity : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.todoAddEditText)
 
         saveButton.setOnClickListener {
-            viewModel.addToDatabase(editTitle.text.toString(),
-                                    editText.text.toString())
+            viewModel.addToDatabase(
+                editTitle.text.toString(),
+                editText.text.toString()
+            )
             goToMainActivity()
-            finish()
+
         }
 
         cancelButton.setOnClickListener {
-            finish()
+            goToMainActivity()
         }
 
     }
-    private fun goToMainActivity(){
-        val myIntent = Intent(this, MainActivity::class.java)
-        startActivity(myIntent)
+
+    private fun goToMainActivity() {
+        Intent(this, MainActivity::class.java).apply {
+            startActivity(this)
+        }
+        finish()
     }
 }

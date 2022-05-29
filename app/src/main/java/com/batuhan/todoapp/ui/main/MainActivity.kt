@@ -19,6 +19,7 @@ import com.batuhan.todoapp.ui.list.ListActivity
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: MainAdapter
     private lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
