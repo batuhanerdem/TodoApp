@@ -59,7 +59,6 @@ class ListAdapter(
                 notifyItemRemoved(position)
             }
         }
-
     }
 
     override fun getItemCount(): Int {

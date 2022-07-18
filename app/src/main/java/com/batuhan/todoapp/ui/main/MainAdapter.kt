@@ -42,6 +42,7 @@ class MainAdapter(
         val id = currentTodo.uid
         val title = currentTodo.title
         val text = currentTodo.text
+        val isDone = currentTodo.isDone
 
         holder.itemView.apply {
             txtTitleList.setOnClickListener {
@@ -61,14 +62,14 @@ class MainAdapter(
 
             cbDoneList.setOnCheckedChangeListener { _, b ->
                 txtTitleList.doLineOn(b)
-                DataBase.checkedChange(currentTodo.uid, b)
+                DataBase.checkedChange(id, b)
             }
 
             txtTextList.maxLines = 2
-            txtTitleList.text = currentTodo.title
-            txtTitleList.doLineOn(currentTodo.isDone)
-            cbDoneList.isChecked = currentTodo.isDone
-            txtTextList.text = currentTodo.text
+            txtTitleList.text = title
+            txtTitleList.doLineOn(isDone)
+            cbDoneList.isChecked = isDone
+            txtTextList.text = text
         }
     }
 

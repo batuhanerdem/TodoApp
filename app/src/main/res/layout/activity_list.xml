@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#709DB8"
+    android:background="#B9D6C7A0"
     tools:context=".ui.list.ListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -26,6 +26,18 @@
         android:backgroundTint="#65A1E6"
         android:foreground="@drawable/ic_baseline_add_24"
         android:textAlignment="center"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/custom_button"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

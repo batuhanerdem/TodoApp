@@ -36,36 +36,35 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
 
-        listButton.setOnClickListener{
+        listButton.setOnClickListener {
             val myIntent = Intent(this, ListActivity::class.java)
             startActivity(myIntent)
         }
 
     }
-    private fun setRV(){
+
+    private fun setRV() {
         val recycler = findViewById<RecyclerView>(R.id.recyclerMain)
 
-        adapter = MainAdapter(viewModel.todoList,this)
+        adapter = MainAdapter(viewModel.todoList, this)
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val menuInflater = menuInflater
-        menuInflater.inflate(R.menu.settings,menu)
+        menuInflater.inflate(R.menu.settings, menu)
         return super.onCreateOptionsMenu(menu)
 
     }
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //kevserin istegi uzerine isaretlileri silme eklendi
 
-        if (item.itemId == R.id.menuAyarlar){
+        if (item.itemId == R.id.menuAyarlar) {
             val myIntent = Intent(this, SettingsActivity::class.java)
             startActivity(myIntent)
-        }
-        else if (item.itemId == R.id.silme){
+        } else if (item.itemId == R.id.silme) {
             DataBase.deleteCheckeds()
             viewModel.updateTodoList()
             adapter.notifyDataSetChanged()
