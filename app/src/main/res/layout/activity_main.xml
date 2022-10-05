@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B9D6C7A0"
+    android:background="#8BBCCC"
     tools:context=".ui.main.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -24,7 +24,7 @@
         android:layout_height="80dp"
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="60dp"
-        android:backgroundTint="#65A1E6"
+        android:backgroundTint="#5C2E7E"
         android:foreground="@drawable/ic_baseline_add_24"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +36,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="45dp"
         android:layout_marginBottom="60dp"
-        android:backgroundTint="#3845A5"
+        android:backgroundTint="#5C2E7E"
         android:foreground="@drawable/ic_baseline_list_alt_24"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"

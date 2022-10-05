@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B9D6C7A0"
+    android:background="#8BBCCC"
     tools:context=".ui.listAdding.ListAddingActivity">
 
     <EditText
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="90dp"
-        android:backgroundTint="#3845A5"
+        android:backgroundTint="#4C6793"
         android:drawableStart="@drawable/ic_baseline_cancel_24"
         android:drawablePadding="5dp"
         android:text="Iptal et"
@@ -43,21 +43,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="60dp"
-        android:backgroundTint="#65A1E6"
-        android:visibility="gone"
+        android:backgroundTint="#4C6793"
+        android:visibility="visible"
         android:drawableStart="@drawable/ic_baseline_save_24"
         android:drawablePadding="5dp"
         android:text="Kaydet"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/cancelListAdding" />
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/custom_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

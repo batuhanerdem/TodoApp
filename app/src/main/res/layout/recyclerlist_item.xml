@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#B9D6C7A0"
+    android:background="#8BBCCC"
 >
     <TextView
         android:id="@+id/listTextView"
@@ -24,7 +24,7 @@
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#794D7AD3"
+        android:backgroundTint="#5C2E7E"
         android:src="@drawable/ic_baseline_edit_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#794D7AD3"
+        android:backgroundTint="#5C2E7E"
         android:foreground="@drawable/ic_baseline_remove_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

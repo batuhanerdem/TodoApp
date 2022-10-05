@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B9D6C7A0"
+    android:background="#8BBCCC"
     tools:context=".ui.todoEdit.TodoEditActivity">
 
     <EditText
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="60dp"
-        android:backgroundTint="#3845A5"
+        android:backgroundTint="#4C6793"
         android:drawableStart="@drawable/ic_baseline_cancel_24"
         android:drawablePadding="5dp"
         android:text="Iptal et"
@@ -49,8 +49,8 @@
         android:id="@+id/saveEditTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="60dp"
-        android:backgroundTint="#65A1E6"
+        android:layout_marginEnd="56dp"
+        android:backgroundTint="#4C6793"
         android:drawableStart="@drawable/ic_baseline_save_24"
         android:drawablePadding="5dp"
         android:text="Kaydet"
@@ -61,7 +61,7 @@
         android:id="@+id/deleteEditTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#9ED84315"
+        android:backgroundTint="#4C6793"
         android:drawableStart="@drawable/ic_baseline_delete_24"
         android:drawablePadding="5dp"
         android:text="Sil"
